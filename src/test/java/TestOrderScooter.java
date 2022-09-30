@@ -53,7 +53,7 @@ public class TestOrderScooter {
     public void checkOrderScooter() {
         HomePageScooter homePageScooter = new HomePageScooter(driver);
         OrderPageScooter orderPageScooter = new OrderPageScooter(driver);
-        homePageScooter.clickOrderButton(index);
+        homePageScooter.clickOrderButton(0);
         orderPageScooter.setInputOrder(firstName, lastName, address, phoneNumber, dateOrder, comment);
     }
 

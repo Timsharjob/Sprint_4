@@ -59,12 +59,15 @@ public class HomePageScooter {
         driver.findElement(appCookieButton).click();
     }
 
-    public void clickOrderButton(int index) {
+    public void clickOrderButton(int indexOrderButton) {
         By orderScooterButton = orderScooter0;
-        if (index == 0) {
-            orderScooterButton = orderScooter0;
-        } else if (index == 1) {
-            orderScooterButton = orderScooter1;
+        switch (indexOrderButton) {
+            case (0):
+                orderScooterButton = orderScooter0;
+                break;
+            case (1):
+                orderScooterButton = orderScooter1;
+                break;
         }
         clickAppCookieButton();
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(orderScooterButton));
