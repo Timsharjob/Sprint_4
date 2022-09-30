@@ -59,27 +59,23 @@ public class HomePageScooter {
         driver.findElement(appCookieButton).click();
     }
 
-    public void clickOrderButton0() {
+    public void clickOrderButton(int index) {
+        By orderScooterButton = orderScooter0;
+        if (index == 0) {
+            orderScooterButton = orderScooter0;
+        } else if (index == 1) {
+            orderScooterButton = orderScooter1;
+        }
         clickAppCookieButton();
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(orderScooter0));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(orderScooterButton));
         new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(orderScooter0));
-        driver.findElement(orderScooter0).click();
+                .until(ExpectedConditions.elementToBeClickable(orderScooterButton));
+        driver.findElement(orderScooterButton).click();
         OrderPageScooter orderPageScooter = new OrderPageScooter(driver);
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(orderPageScooter.getInputFirstName()));
     }
 
-    public void clickOrderButton1() {
-        clickAppCookieButton();
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(orderScooter1));
-        new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(orderScooter1));
-        driver.findElement(orderScooter1).click();
-        OrderPageScooter orderPageScooter = new OrderPageScooter(driver);
-        new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(orderPageScooter.getInputFirstName()));
-    }
 
     public void checkAccordionHeadingText(String expectedText, int index) {
         clickAppCookieButton();
