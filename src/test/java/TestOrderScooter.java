@@ -58,7 +58,7 @@ public class TestOrderScooter {
     }
 
     @Test
-    public void checkFirstOrderButton() {
+    public void checkOrderButton() {
         HomePageScooter homePageScooter = new HomePageScooter(driver);
         homePageScooter.clickOrderButton(index);
     }
